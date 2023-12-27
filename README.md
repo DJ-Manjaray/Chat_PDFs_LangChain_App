@@ -22,33 +22,33 @@ The framework is highly approachable, leveraging a structure that organizes vast
 
 ## Table of contents:
 
-1. Environment setup
+1. [Environment setup](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App/tree/main?tab=readme-ov-file#setting-up-working-environment)
 
-1. Create GUI
+1. [Create GUI](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App/tree/main?tab=readme-ov-file#create-a-graphical-user-interface-gui)
 
-1. Add Your API Keys
+1. [Add Your API Keys](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App/tree/main?tab=readme-ov-file#add-your-api-keys)
 
-1. Load Required Libraries
+1. [Load Required Libraries]()
 
-1. How This Works (Diagram)
+1. [How This Works (Diagram)](https://camo.githubusercontent.com/bb43356b559155a8d17c20ba86b24d3ae394c9cc58f36d595935ff6b36c1f448/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f333238302f312a634379527a72523272344f614e714a5a5852514b35772e706e67)
 
-1. Extract Text from PDFs
+1. [Extract Text from PDFs]()
 
-1. Split Text into Chunks
+1. [Split Text into Chunks](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App/tree/main?tab=readme-ov-file#splitting-documents-into-chunks)
 
-1. Embeddings
+1. [Embeddings](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App/tree/main?tab=readme-ov-file#utilizing-embeddings-for-data-chunks-and-conversion-to-vectors-with-openaiembeddings--huggingfaceinstructembeddings)
 
-1. Create a Conversation Chain
+1. [Create a Conversation Chain]()
 
-1. Make Conversation Persistent
+1. [Make Conversation Persistent]()
 
-1. Display Chat Memory
+1. [Display Chat Memory](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App/tree/main?tab=readme-ov-file#conversational-memory-in-llms)
 
-1. Handle User Input & Processing
+1. [Handle User Input & Processing](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App/tree/main?tab=readme-ov-file#how-to-handle-user-input)
 
-1. Run Application
+1. [Run Application](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App/tree/main?tab=readme-ov-file#running-the-application.)
 
-1. Conclusion
+1. [Conclusion]()
 
 
 ## Setting up Working Environment:
@@ -185,7 +185,7 @@ Once text is embedded, various operations such as grouping, sorting, searching, 
        vector_db = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
           return vector_db
 
-Conversation Chain
+## Conversation Chain
 
 Initialize the conversation chain in the LLM:
 
