@@ -50,9 +50,6 @@ The framework is highly approachable, leveraging a structure that organizes vast
 
 1. Conclusion
 
-You can find all the codes used in this article in this [GitHub Repo](https://github.com/DJ-Manjaray):
-[**GitHub - DJ-Manjaray/Chat_PDFs_LangChain_App**
-*Contribute to DJ-Manjaray/Chat_PDFs_LangChain_App development by creating an account on GitHub.*github.com](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App.git)
 
 ## Setting up Working Environment:
 
