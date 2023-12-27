@@ -38,9 +38,9 @@ The framework is highly approachable, leveraging a structure that organizes vast
 
 1. [Embeddings](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App/tree/main?tab=readme-ov-file#utilizing-embeddings-for-data-chunks-and-conversion-to-vectors-with-openaiembeddings--huggingfaceinstructembeddings)
 
-1. [Create a Conversation Chain]()
+1. [Create a Conversation Chain](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App?tab=readme-ov-file#conversation-chain)
 
-1. [Make Conversation Persistent]()
+1. [Make Conversation Persistent](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App?tab=readme-ov-file#make-conversation-persistent)
 
 1. [Display Chat Memory](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App/tree/main?tab=readme-ov-file#conversational-memory-in-llms)
 
@@ -48,7 +48,7 @@ The framework is highly approachable, leveraging a structure that organizes vast
 
 1. [Run Application](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App/tree/main?tab=readme-ov-file#running-the-application.)
 
-1. [Conclusion]()
+1. [Conclusion](https://github.com/DJ-Manjaray/Chat_PDFs_LangChain_App?tab=readme-ov-file#conclusion)
 
 
 ## Setting up Working Environment:
