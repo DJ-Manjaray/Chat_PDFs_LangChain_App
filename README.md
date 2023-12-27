@@ -8,7 +8,7 @@ Imagine an application that enables you to engage in a conversational interactio
 
 Often, documents are lengthy and contain multiple pages, making it challenging to locate specific information quickly. The conventional method of skimming through pages can be time-consuming and tedious.
 
-However, advancements in **Natural Language Processing** (NLP) through deep learning have significantly simplified such tasks.
+However, advancements in Natural Language Processing (NLP) through deep learning have significantly simplified such tasks.
 
 In this blog, I will demonstrate how we can leverage LangChain to build an application that enables users to engage in conversations with their documents.
 
@@ -16,11 +16,11 @@ Primarily, LangChain can serve as a Personal AI Assistant or a mini-study buddy,
 
 For those new to the realm of LangChain, here’s a brief introduction.
 
-[**LangChain](https://python.langchain.com/docs/get_started/introduction)** is an open-source framework designed to simplify the development of applications using large language models, such as GPT-4. It is available in Python and Javascript (TypeScript) packages.
+[LangChain](https://python.langchain.com/docs/get_started/introduction) is an open-source framework designed to simplify the development of applications using large language models, such as GPT-4. It is available in Python and Javascript (TypeScript) packages.
 
 The framework is highly approachable, leveraging a structure that organizes vast amounts of data into manageable “*chunks*” subsequently embedded into a vector store.
 
-## **Table of contents:**
+## Table of contents:
 
 1. Environment setup
 
@@ -73,10 +73,10 @@ Next, create three new Python files within your project directory:
 
 To protect your API keys, create a *.env* file in your project’s root directory. This precaution prevents accidental exposure in public repositories and safeguards your keys from unauthorized access.
 
-**Load Required Libraries**
+Load Required Libraries
 Ensure all necessary libraries are installed to verify that the environment is ready for work.
 
-**utils.py**
+utils.py
 
     from PyPDF2 import PdfReader
     from langchain.text_splitter import CharacterTextSplitter
@@ -87,7 +87,7 @@ Ensure all necessary libraries are installed to verify that the environment is r
     from langchain.chains import ConversationalRetrievalChain, StuffDocumentsChain, LLMChain
     from langchain.llms import HuggingFaceHubpy
 
-**app.py**
+app.py
 
     import streamlit as st
     from dotenv import load_dotenv
@@ -96,7 +96,7 @@ Ensure all necessary libraries are installed to verify that the environment is r
 
 ## Create a Graphical User Interface (GUI):
 
-Setting up the application layout is simplified using [**Streamlit](https://docs.streamlit.io/library/get-started/create-an-app)**, an open-source framework for rapidly building and sharing web apps.
+Setting up the application layout is simplified using [Streamlit](https://docs.streamlit.io/library/get-started/create-an-app), an open-source framework for rapidly building and sharing web apps.
 
     # Set page configuration like title, favicon, layout, initial sidebar state, and menu items
     st.set_page_config(page_title="Chat_PDFs_LangChain_App", page_icon="🐱‍💻")
@@ -122,7 +122,7 @@ This configuration sets up a user-friendly interface for chatting with PDFs usin
 
 ![ChatGPT by using the LangChain Framework](https://cdn-images-1.medium.com/max/3280/1*cCyRzrR2r4OaNqJZXRQK5w.png)*ChatGPT by using the LangChain Framework*
 
-**utils.py**
+utils.py
 
 Here, the “*get_pdf_text*” function takes a list of PDF file paths as input and returns the concatenated text from all the pages of your PDF files.
 
@@ -134,15 +134,15 @@ Here, the “*get_pdf_text*” function takes a list of PDF file paths as input 
                     txt += page.extract_text()
             return txt
 
-## **Splitting Documents into Chunks:**
+## Splitting Documents into Chunks:
 
 Splitting text into smaller chunks is crucial because language models are often constrained by the amount of text they can process effectively.
 
-LangChain employs a simple method called “**Split by Character**” using the “**CharacterTextSplitter**”. By default, it splits the text based on a specific character (usually “\n\n”) and measures the chunk length by the number of characters.
+LangChain employs a simple method called “Split by Character” using the “CharacterTextSplitter”. By default, it splits the text based on a specific character (usually “\n\n”) and measures the chunk length by the number of characters.
 
-1. **Method Used**: Splitting by a single character.
+1. Method Used: Splitting by a single character.
 
-1. **Measurement of Chunk Size:** Based on the number of characters.
+1. Measurement of Chunk Size: Based on the number of characters.
 
 This approach ensures that the text is divided into manageable chunks, optimizing the language model’s efficiency.
 
@@ -158,13 +158,13 @@ This approach ensures that the text is divided into manageable chunks, optimizin
 
 ![Text Embedding Model](https://cdn-images-1.medium.com/max/2000/1*pL5YaQHSu9yu7dW8W_FK8g.gif)*Text Embedding Model*
 
-## **Utilizing Embeddings for Data Chunks and Conversion to Vectors with OpenAIEmbeddings / HuggingFaceInstructEmbeddings**
+## Utilizing Embeddings for Data Chunks and Conversion to Vectors with OpenAIEmbeddings / HuggingFaceInstructEmbeddings
 
-In the realm of large language operations, [**Text Embeddings](https://platform.openai.com/docs/guides/embeddings)** serve as the cornerstone. The transformation of text into vector forms stands out as one of the most efficient approaches when working with language models in Natural Language Processing (NLP).
+In the realm of large language operations, [Text Embeddings](https://platform.openai.com/docs/guides/embeddings) serve as the cornerstone. The transformation of text into vector forms stands out as one of the most efficient approaches when working with language models in Natural Language Processing (NLP).
 
-Both [**OpenAIEmbeddings](https://platform.openai.com/docs/guides/embeddings)** and [**HuggingFaceInstructEmbeddings](https://python.langchain.com/docs/integrations/text_embedding/instruct_embeddings)** demonstrate efficiency in their ways.
+Both [OpenAIEmbeddings](https://platform.openai.com/docs/guides/embeddings) and [HuggingFaceInstructEmbeddings](https://python.langchain.com/docs/integrations/text_embedding/instruct_embeddings) demonstrate efficiency in their ways.
 
-Notably, examining the [**Massive Text Embedding Benchmark (MTEB)](https://huggingface.co/spaces/mteb/leaderboard)** Leaderboard as of December 2023, according to the HuggingFace chart:
+Notably, examining the [Massive Text Embedding Benchmark (MTEB)](https://huggingface.co/spaces/mteb/leaderboard) Leaderboard as of December 2023, according to the HuggingFace chart:
 
     +------------------------------------------------+----------------------------+
     |                Model                           | Embedding Output Dimensions|
@@ -175,7 +175,7 @@ Notably, examining the [**Massive Text Embedding Benchmark (MTEB)](https://huggi
     | OpenAIEmbeddings (text-embedding-ada-002)      |       1536                 |  
     +------------------------------------------------+----------------------------+
 
-In our case, we opt to use the embeddings provided by **HuggingFaceInstructEmbeddings** with the model name “[*hkunlp/instructor-large](https://huggingface.co/hkunlp/instructor-large)*”.
+In our case, we opt to use the embeddings provided by HuggingFaceInstructEmbeddings with the model name “[*hkunlp/instructor-large](https://huggingface.co/hkunlp/instructor-large)*”.
 
 Once text is embedded, various operations such as grouping, sorting, searching, etc., become feasible. These embeddings take text as input and return a list of floats, forming a vector representation (embeddings). These vectors can be interpreted as numerical representations of the input text.
 
@@ -185,22 +185,22 @@ Once text is embedded, various operations such as grouping, sorting, searching, 
        vector_db = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
           return vector_db
 
-**Conversation Chain**
+Conversation Chain
 
 Initialize the conversation chain in the LLM:
 
     from langchain.llms import HuggingFaceHub, OpenAI
 
-For this instance, we have opted for the HuggingFaceHub, and the chosen model is identified by the repository ID “[**google/flan-t5-xxl.](https://huggingface.co/google/flan-t5-xxl)**”
+For this instance, we have opted for the HuggingFaceHub, and the chosen model is identified by the repository ID “[google/flan-t5-xxl.](https://huggingface.co/google/flan-t5-xxl)”
 > “
  Flan-PaLM 540B achieves state-of-the-art performance on several benchmarks, such as 75.2% on five-shot MMLU. We also publicly release Flan-T5 checkpoints,1 which achieve strong few-shot performance even compared to much larger models, such as PaLM 62B. Overall, instruction finetuning is a general method for improving the performance and usability of pretrained language models.
 ”
 
 ## Make Conversation Persistent
 
-**ConversationBufferMemory: **The ConversationBufferMemory facilitates the storage of messages and subsequently extracts them into a variable.
+ConversationBufferMemory: The ConversationBufferMemory facilitates the storage of messages and subsequently extracts them into a variable.
 
-**ConversationalRetrievalChain:** The ConversationalRetrievalChain empowers the chain to engage in a conversation based on retrieved documents. This chain takes in chat history (a list of messages) and new questions, returning an answer to the posed question.
+ConversationalRetrievalChain: The ConversationalRetrievalChain empowers the chain to engage in a conversation based on retrieved documents. This chain takes in chat history (a list of messages) and new questions, returning an answer to the posed question.
 
 ## Conversational Memory in LLMs
 
@@ -220,7 +220,7 @@ The ConversationalRetrievalChain is a conversational AI model designed to retrie
 
 ## How to handle user input?
 
-Implementing as a Class in **app.py**
+Implementing as a Class in app.py
 
     def handle_userinput(user_question):
         response = st.session_state.conversation({'question': user_question})
@@ -234,9 +234,9 @@ Implementing as a Class in **app.py**
                 st.write(bot_template.replace(
                     "{{MSG}}", message.content), unsafe_allow_html=True)
 
-This function receives “*user_question*” as input and produces a response utilizing “[***st.session_state.conversation](https://docs.streamlit.io/library/api-reference/session-state)***”, which serves as a repository for the entire conversation history between the user and the bot.
+This function receives “*user_question*” as input and produces a response utilizing “[*st.session_state.conversation](https://docs.streamlit.io/library/api-reference/session-state)*”, which serves as a repository for the entire conversation history between the user and the bot.
 
-Within the function, “[***st.session_state.chat_history](https://docs.streamlit.io/library/api-reference/session-state)***” iterates through the chat history, displaying each message in the appropriate format. The formatting is achieved using the “***user_template***” extracted from* “**htmlTemplates.py**”*.
+Within the function, “[*st.session_state.chat_history](https://docs.streamlit.io/library/api-reference/session-state)*” iterates through the chat history, displaying each message in the appropriate format. The formatting is achieved using the “*user_template*” extracted from* “htmlTemplates.py”*.
 
 ## Running the Application:
 
@@ -248,7 +248,7 @@ Follow these steps:
 
 1. Upload multiple documents.
 
-1. Click on “**Process**”.
+1. Click on “Process”.
 
 1. Wait for the documents to load.
 
@@ -262,21 +262,21 @@ Now, everything is perfectly set.
 
 After users upload multiple files (PDFs), the subsequent process involves triggering processing, encompassing the following steps:
 
-1. **Extract Text from Uploaded Files**: Utilize the uploaded PDFs to extract the text content.
+1. Extract Text from Uploaded Files: Utilize the uploaded PDFs to extract the text content.
 
-1. **Split Text into Chunks:** Divide the extracted text into manageable chunks, facilitating efficient processing.
+1. Split Text into Chunks: Divide the extracted text into manageable chunks, facilitating efficient processing.
 
-1. **Create a Vector Store:** Generate a vector store from the text chunks, providing a structured representation.
+1. Create a Vector Store: Generate a vector store from the text chunks, providing a structured representation.
 
-1. **Create a Conversational Chain Using Vector Store**: Establish a conversational chain, leveraging the vector store to enable interactive conversations.
+1. Create a Conversational Chain Using Vector Store: Establish a conversational chain, leveraging the vector store to enable interactive conversations.
 
 Additionally, it’s crucial to handle various aspects, including:
 
-* **User Input Cases:** Address different scenarios related to user input, ensuring a smooth user experience.
+* User Input Cases: Address different scenarios related to user input, ensuring a smooth user experience.
 
-* **Processing Time of Files:** Manage the time taken for processing files, optimizing efficiency.
+* Processing Time of Files: Manage the time taken for processing files, optimizing efficiency.
 
-* **Conversational State Management:** Effectively handle the conversational state within the Streamlit web app, ensuring seamless interactions.
+* Conversational State Management: Effectively handle the conversational state within the Streamlit web app, ensuring seamless interactions.
 
 By encapsulating these functionalities within a class structure and executing the main function in steps, the implementation becomes organized and modular, promoting maintainability and extensibility.
 
@@ -290,7 +290,7 @@ Hope this helps! Feel free to let me know if this post was useful. 😃
 
 Hungry for AI? Follow, bite-sized brilliance awaits! ⚡
 
-🔔 Follow Me: [**LinkedIn](https://www.linkedin.com/in/deeraj-manjaray/)** | [**GitHub](https://github.com/DJ-Manjaray)** | [**Twitter](https://twitter.com/deerajmanjaray)**
+🔔 Follow Me: [LinkedIn](https://www.linkedin.com/in/deeraj-manjaray/) | [GitHub](https://github.com/DJ-Manjaray) | [Twitter](https://twitter.com/deerajmanjaray)
 
 [Buy me a coffee](https://www.buymeacoffee.com/deerajR):
 
